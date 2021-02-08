@@ -5,17 +5,9 @@
  * Copyright(c) 2020 Christian Norrman
  * MIT Licensed
  */
-import {
-  getCookies,
-  setCookie,
-  deleteCookie,
-  Cookie,
-  Response,
-  ServerRequest,
-  Keygrip,
-  SameSite,
-  ms,
-} from "./deps.ts";
+import { deleteCookie, getCookies, Keygrip, ms, setCookie } from "./deps.ts";
+
+import type { Cookie, Response, SameSite, ServerRequest } from "./deps.ts";
 
 /**
  * RegExp to match field-content in RFC 7230 sec 3.2
@@ -114,8 +106,12 @@ export class CookieJar extends Map<string, string> {
     opts: CookieOptions,
   ): boolean {
     let {
-      secure, maxAge, expires, sameSite, domain,
-      path = '/',
+      secure,
+      maxAge,
+      expires,
+      sameSite,
+      domain,
+      path = "/",
       httpOnly = true,
     } = opts;
     if (!this.#secure && secure) {
@@ -154,7 +150,15 @@ export class CookieJar extends Map<string, string> {
 
     // Create cookie
     const cookie = {
-      name, value, secure, domain, path, httpOnly, sameSite, maxAge, expires,
+      name,
+      value,
+      secure,
+      domain,
+      path,
+      httpOnly,
+      sameSite,
+      maxAge,
+      expires,
     } as Cookie;
     setCookie(this.#res, cookie);
 
