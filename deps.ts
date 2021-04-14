@@ -3,14 +3,14 @@ export {
   deleteCookie,
   getCookies,
   setCookie,
-} from "https://deno.land/std@0.86.0/http/mod.ts";
+} from "https://deno.land/std@v0.86.0/http/mod.ts";
 
 export type {
   Cookie,
   Response,
   SameSite,
   ServerRequest,
-} from "https://deno.land/std@0.86.0/http/mod.ts";
+} from "https://deno.land/std@v0.86.0/http/mod.ts";
 
 // Third party libraries
 export { Keygrip } from "https://deno.land/x/keygrip@v2.0.0/mod.ts";
